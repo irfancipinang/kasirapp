@@ -3,10 +3,27 @@ import { Row, Col, Container } from 'react-bootstrap'
 import Hasil  from './components/hasil'
 import NavbarComponent from'./components/navbar'
 import Categories from'./components/categories'
+import React, { Component } from 'react'
+import { API_URL } from './utils/constants'
+import axios from 'axios' 
 
-function App() {
-  return (
-    <div className='App'>
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       menus: [],
+
+    }
+  }
+
+  componentDidMount() {
+
+  }
+  
+  render() {
+    return (
+      <div className='App'>
         <NavbarComponent/>
         <div className='mt-2'>
           <Container fluid>
@@ -23,8 +40,7 @@ function App() {
           </Container>
         </div>
     </div>
-   
-  )
+    )
+  }
 }
 
-export default App
