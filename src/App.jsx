@@ -18,10 +18,19 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-
+    axios
+      .get(API_URL+"products")
+      .then(res => {
+        const menus = res.data;
+        this.setState({ menus });
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
   
   render() {
+    console.log(this.state.menus)
     return (
       <div className='App'>
         <NavbarComponent/>
