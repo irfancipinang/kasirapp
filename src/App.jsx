@@ -1,8 +1,6 @@
 import './index.css'
 import { Row, Col, Container } from 'react-bootstrap'
-import Hasil  from './components/hasil'
-import NavbarComponent from'./components/navbar'
-import Categories from'./components/categories'
+import { Hasil, Categories, Menus, NavbarComponent } from './components'
 import React, { Component } from 'react'
 import { API_URL } from './utils/constants'
 import axios from 'axios' 
@@ -13,7 +11,6 @@ export default class App extends Component {
   
     this.state = {
        menus: [],
-
     }
   }
 
@@ -30,7 +27,7 @@ export default class App extends Component {
   }
   
   render() {
-    console.log(this.state.menus)
+    const { menus } = this.state
     return (
       <div className='App'>
         <NavbarComponent/>
@@ -43,6 +40,14 @@ export default class App extends Component {
               <strong>Daftar Produk</strong>
             </h5>
             <hr  style={{ width: '100%', border: '1px solid black' }}/>
+            <Row>
+              {menus && menus.map((menu) => (
+               <Menus 
+                  key={menu.id}
+                  menu={menu}
+               />
+              ))}
+            </Row>
             </Col>
             <Hasil/>
           </Row>
