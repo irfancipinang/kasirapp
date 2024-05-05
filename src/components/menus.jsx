@@ -5,7 +5,7 @@ const menus = ({menu}) => {
   return (
     <Col md={4} xs={6} className="mb-4">
     <Card >
-      <Card.Img variant="top" src={"assets/images/"+menu.category.nama.toLowerCase() +"/" + menu.gambar} />
+      <Card.Img variant="top" src={"public/assets/images/"+menu.category.nama.toLowerCase() +"/"+menu.gambar}/>
       <Card.Body>
         <Card.Title>{menu.nama}</Card.Title>
         <Card.Text>
@@ -14,7 +14,7 @@ const menus = ({menu}) => {
       </Card.Body>
     </Card>
     </Col>
-  );
-};
+  )
+}
 
 export default menus
