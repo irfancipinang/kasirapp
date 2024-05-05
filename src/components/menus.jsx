@@ -4,7 +4,7 @@ import { numberWithCommas } from '../utils/number'
 const menus = ({menu}) => {
   return (
     <Col md={4} xs={6} className="mb-4">
-    <Card >
+    <Card>
       <Card.Img variant="top" src={"public/assets/images/"+menu.category.nama.toLowerCase() +"/"+menu.gambar}/>
       <Card.Body>
         <Card.Title>{menu.nama}</Card.Title>
