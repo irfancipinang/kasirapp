@@ -27,6 +27,7 @@ export default class categories extends Component {
   
   render() {
     const { categories } = this.state
+    const { changeCategory, categoriYangDipilih} = this.props
     return (
       <Col> 
         <h5>
@@ -35,7 +36,9 @@ export default class categories extends Component {
           <hr  style={{ width: '100%', border: '1px solid black' }}/>
           <ListGroup>
             {categories && categories.map((category) => (
-               <ListGroup.Item key={category.id}>
+               <ListGroup.Item key={category.id} onClick={() => changeCategory(category.nama)}
+               className={categoriYangDipilih === category.nama && "category-aktif"}
+               >
                 {category.nama}
                </ListGroup.Item>
             ))}

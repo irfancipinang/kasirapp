@@ -1,5 +1,7 @@
-
-
+.category-aktif {
+  background-color:aqua ;
+  color: white;
+}
 
 .navbar {
     background-color: #436b85;
