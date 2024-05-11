@@ -4,6 +4,7 @@ import axios from 'axios'
 import { API_URL } from '../utils/constants'
 import ListGroup from 'react-bootstrap/ListGroup';
 
+
 export default class categories extends Component {
   constructor(props) {
     super(props)
@@ -26,8 +27,8 @@ export default class categories extends Component {
   }
   
   render() {
-    const { categories } = this.state
-    const { changeCategory, categoriYangDipilih} = this.props
+    const { categories } = this.state;
+    const { changeCategory, categoriYangDipilih} = this.props;
     return (
       <Col> 
         <h5>
@@ -37,7 +38,8 @@ export default class categories extends Component {
           <ListGroup>
             {categories && categories.map((category) => (
                <ListGroup.Item key={category.id} onClick={() => changeCategory(category.nama)}
-               className={categoriYangDipilih === category.nama && "category-aktif"}
+               className={categoriYangDipilih === category.nama && "category"}
+               style={{cursor: 'pointer'}}
                >
                 {category.nama}
                </ListGroup.Item>
