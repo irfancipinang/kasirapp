@@ -1,17 +1,17 @@
 {
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "nama": "Makanan"
     },
     {
-      "id": 2,
+      "id": "2",
       "nama": "Minuman"
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "nama": "Sate Ayam",
       "harga": 15000,
       "is_ready": true,
@@ -22,7 +22,7 @@
       }
     },
     {
-      "id": 2,
+      "id": "2",
       "nama": "Mie Goreng",
       "harga": 10000,
       "is_ready": true,
@@ -33,7 +33,7 @@
       }
     },
     {
-      "id": 3,
+      "id": "3",
       "nama": "Ayam Bakar",
       "harga": 18000,
       "is_ready": true,
@@ -44,7 +44,7 @@
       }
     },
     {
-      "id": 4,
+      "id": "4",
       "nama": "Nasi",
       "harga": 5000,
       "is_ready": true,
@@ -55,7 +55,7 @@
       }
     },
     {
-      "id": 5,
+      "id": "5",
       "nama": "Ikan Bakar",
       "harga": 8000,
       "is_ready": true,
@@ -66,7 +66,7 @@
       }
     },
     {
-      "id": 6,
+      "id": "6",
       "nama": "Es Jeruk",
       "harga": 6000,
       "is_ready": true,
@@ -77,7 +77,7 @@
       }
     },
     {
-      "id": 7,
+      "id": "7",
       "nama": "Es Coffe",
       "harga": 5000,
       "is_ready": true,
@@ -88,7 +88,7 @@
       }
     },
     {
-      "id": 8,
+      "id": "8",
       "nama": "es Teh",
       "harga": 5000,
       "is_ready": true,
@@ -99,7 +99,23 @@
       }
     }
   ],
-  "keranjangs":[],
-  "pesanans":[]
-  
+  "keranjangs": [
+    {
+      "id": "34e5",
+      "jumlah": 1,
+      "total_harga": 15000,
+      "product": {
+        "id": "1",
+        "nama": "Sate Ayam",
+        "harga": 15000,
+        "is_ready": true,
+        "gambar": "sate-ayam.jpg",
+        "category": {
+          "id": 1,
+          "nama": "Makanan"
+        }
+      }
+    }
+  ],
+  "pesanans": []
 }

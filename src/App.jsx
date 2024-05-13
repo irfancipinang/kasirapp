@@ -19,7 +19,7 @@ export default class App extends Component {
 
   componentDidMount() {
     axios
-      .get(API_URL+"products?category.nama="+this.state.categoriYangDipilih)
+      .get(API_URL+"products?category.nama="+ this.state.categoriYangDipilih)
       .then((res) => {
         const menus = res.data;
         this.setState({ menus });
@@ -59,54 +59,50 @@ export default class App extends Component {
   masukKeranjang = (value) => {
 
     axios
-    .get(API_URL+"keranjangs?product.id=" + value.id)
+    .get(API_URL+"keranjangs?product.id="+ value.id)
     .then((res) => {
-      if(res.data.length === 0 ) {
-
+      if(res.data.length === 0) {
         const keranjang = {
           jumlah: 1,
           total_harga: value.harga,
-          product: value, 
+          product: value,
         }
-  
-      axios
-      .get(API_URL + "keranjangs", keranjang )
-      .then((res) => {
-        swal({
-          title: "Sukses",
-          text: "Sukses Masuk Keranjang " +keranjang.product.nama,
-          icon: "success",
-          button: false,
-          timer: 2000,
-        })
-      })
     
-      .catch(error => {
-        console.log(error);
+        axios
+        .post(API_URL+"keranjangs", keranjang)
+        .then((res) => {
+          swal({
+            title: "Sukses",
+            text: "Sukses Masuk Keranjang " +keranjang.product.nama,
+            icon: "success",
+            button: false,
+            timer: 2000,
+          })
+        })
+        .catch(error => {
+          console.log(error);
         })
       }else {
-
         const keranjang = {
           jumlah: res.data[0].jumlah+1,
-          total_harga: res.data[0].total_harga + value.harga,
-          product: value
+          total_harga: res.data[0].total_harga+value.harga,
+          product: value,
         }
-      
-        axios
-      .put(API_URL+"keranjangs/" + res.data[0].id, keranjang )
-      .then((res) => {
-        swal({
-          title: "Sukses",
-          text: "Sukses Masuk Keranjang " +keranjang.product.nama,
-          icon: "success",
-          button: false,
-          timer: 2000,
-        })
-      })
-      .catch(error => {
-        console.log(error);
-        })
 
+        axios
+        .put(API_URL+"keranjangs/"+res.data[0].id, keranjang)
+        .then((res) => {
+          swal({
+            title: "Sukses",
+            text: "Sukses Masuk Keranjang " +keranjang.product.nama,
+            icon: "success",
+            button: false,
+            timer: 2000,
+          })
+        })
+        .catch(error => {
+          console.log(error);
+        })
       }
     })
     .catch(error => {
