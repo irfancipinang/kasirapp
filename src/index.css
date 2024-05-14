@@ -1,6 +1,6 @@
 .category {
-  background-color: #4582aa;
-  color: white;
+  background-color: #4582aa !important;
+  color: white !important;
 }
 .navbar {
     background-color: #4582aa;
