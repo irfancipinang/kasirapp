@@ -35,7 +35,7 @@ export default class categories extends Component {
           <strong>Daftar kategori</strong>
         </h5>
           <hr  style={{ width: '100%', border: '1px solid black' }}/>
-          <ListGroup>
+          <ListGroup className='shadow-sm'>
             {categories && categories.map((category) => (
                <ListGroup.Item key={category.id} onClick={() => changeCategory(category.nama)}
                className={categoriYangDipilih === category.nama &&  "category"}

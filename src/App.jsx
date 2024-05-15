@@ -39,6 +39,19 @@ export default class App extends Component {
       })
   }
 
+  componentDidUpdate(prevState) {
+    if(this.state.keranjangs !== prevState.keranjangs)
+      axios
+      .get(API_URL+"keranjangs")
+      .then((res) => {
+        const keranjangs = res.data;
+        this.setState({ keranjangs });
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
   changeCategory = (value) => {
     this.setState({
       categoriYangDipilih: value,

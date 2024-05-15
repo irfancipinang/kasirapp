@@ -33,7 +33,7 @@ export default class Hasil extends Component {
                  <p>Rp.{numberWithCommas(menuKeranjang.product.harga)}</p>
               </Col>
               <Col>
-                
+                <strong>Rp. {numberWithCommas(menuKeranjang.total_harga)}</strong>
               </Col>
              </Row>
             </ListGroup.Item>
