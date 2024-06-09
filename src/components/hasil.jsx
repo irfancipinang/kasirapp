@@ -16,7 +16,7 @@ export default class Hasil extends Component {
         <strong>Hasil</strong>
       </h5>
       <hr  style={{ width: '100%', border: '1px solid black' }}/>
-      {keranjangs &&
+      {keranjangs && 
          <ListGroup variant="flush">
            {keranjangs.map((menuKeranjang) =>(
             <ListGroup.Item>
@@ -31,7 +31,7 @@ export default class Hasil extends Component {
               <Col>
                  <h5>{menuKeranjang.product.nama}</h5>
                  <p>Rp.{numberWithCommas(menuKeranjang.product.harga)}</p>
-              </Col>
+              </Col> 
               <Col>
                 <strong>Rp. {numberWithCommas(menuKeranjang.total_harga)}</strong>
               </Col>
@@ -40,8 +40,9 @@ export default class Hasil extends Component {
            ))}
        </ListGroup>
       }
+      <Pembayaran keranjangs={keranjangs} />
       </Col>
-    )
+    );
   }
 }
 
