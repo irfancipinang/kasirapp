@@ -101,8 +101,8 @@
   ],
   "keranjangs": [
     {
-      "jumlah": 2,
-      "total_harga": 20000,
+      "jumlah": 3,
+      "total_harga": 30000,
       "product": {
         "id": "2",
         "nama": "Mie Goreng",
@@ -133,31 +133,31 @@
       }
     },
     {
-      "jumlah": 2,
-      "total_harga": 16000,
+      "id": "b22b",
+      "jumlah": 1,
+      "total_harga": 6000,
+      "product": {
+        "id": "6",
+        "nama": "Es Jeruk",
+        "harga": 6000,
+        "is_ready": true,
+        "gambar": "es-jeruk.jpg",
+        "category": {
+          "id": 2,
+          "nama": "Minuman"
+        }
+      }
+    },
+    {
+      "id": "8fd3",
+      "jumlah": 1,
+      "total_harga": 8000,
       "product": {
         "id": "5",
         "nama": "Ikan Bakar",
         "harga": 8000,
         "is_ready": true,
         "gambar": "ikan-bakar.jpg",
-        "category": {
-          "id": 1,
-          "nama": "Makanan"
-        }
-      },
-      "id": "04de"
-    },
-    {
-      "id": "0a42",
-      "jumlah": 1,
-      "total_harga": 5000,
-      "product": {
-        "id": "4",
-        "nama": "Nasi",
-        "harga": 5000,
-        "is_ready": true,
-        "gambar": "nasi.jpg",
         "category": {
           "id": 1,
           "nama": "Makanan"
