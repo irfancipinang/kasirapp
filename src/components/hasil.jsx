@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import { ListGroup } from 'react-bootstrap'
 import { numberWithCommas } from '../utils/number';
 import Badge from 'react-bootstrap/Badge' 
+import Pembayaran from './pembayaran';
 
 export default class Hasil extends Component {
   render() {
