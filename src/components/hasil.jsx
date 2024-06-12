@@ -9,7 +9,8 @@ import Pembayaran from './pembayaran';
 export default class Hasil extends Component {
   render() {
     const { keranjangs } = this.props
-    console.log(keranjangs);
+    
+    // console.log(keranjangs && keranjangs.length);
     
     return (
       <Col>
