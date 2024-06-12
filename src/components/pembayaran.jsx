@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import { numberWithCommas } from '../utils/number';
 
 export default class Pembayaran extends Component {
@@ -11,11 +11,14 @@ export default class Pembayaran extends Component {
     return (
       <div className="fixed-bottom">
         <Row>
-          <Col md={{ span: 3, offset: 9}} className="px-2">
-            <h1>p</h1>
-            <h4>Total Harga : Rp. {pembayaran && numberWithCommas(pembayaran)}</h4>
+          <Col md={{ span: 3, offset: 9}} className="px-4">
+            <h4>Total Harga : <strong className="float-right mr-2"> Rp. {pembayaran && numberWithCommas(pembayaran)}</strong></h4>
+            <Button variant="primary" block className="mb-2 mt-2 mr-2">
+              <strong>BAYAR</strong>
+            </Button>
           </Col>
         </Row>
+        
       </div>
     )
   }
