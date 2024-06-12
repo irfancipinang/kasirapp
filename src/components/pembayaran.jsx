@@ -13,9 +13,7 @@ export default class Pembayaran extends Component {
         <Row>
           <Col md={{ span: 3, offset: 9}} className="px-4">
             <h4>Total Harga : <strong className="float-right mr-2"> Rp. {pembayaran && numberWithCommas(pembayaran)}</strong></h4>
-            <Button variant="primary" block className="mb-2 mt-2 mr-2">
-              <strong>BAYAR</strong>
-            </Button>
+            <Button className="text-center" variant="primary w-100 fs-6 mb-2" size="lg" type="BAYAR"> BAYAR </Button>
           </Col>
         </Row>
         
