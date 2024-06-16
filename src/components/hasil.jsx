@@ -20,8 +20,8 @@ export default class Hasil extends Component {
       <hr  style={{ width: '100%', border: '1px solid black' }}/>
       {keranjangs && 
          <ListGroup variant="flush">
-           {keranjangs.map((menuKeranjang) =>(
-            <ListGroup.Item>
+           {keranjangs.map((menuKeranjang, i) =>(
+            <ListGroup.Item key={i}>
              <Row>
               <Col xs={2}>
               <h4>

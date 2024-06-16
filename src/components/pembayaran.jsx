@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
 import { numberWithCommas } from '../utils/number';
+import { Link } from 'react-router-dom';
 
 export default class Pembayaran extends Component {
   render() {
@@ -13,7 +14,7 @@ export default class Pembayaran extends Component {
         <Row>
           <Col md={{ span: 3, offset: 9}} className="px-4">
             <h4>Total Harga : <strong className="float-right mr-2"> Rp. {pembayaran && numberWithCommas(pembayaran)}</strong></h4>
-            <Button className="text-center" variant="primary w-100 fs-6 mb-2" size="lg" type="BAYAR"> BAYAR </Button>
+            <Button className="text-center" variant="primary w-100 fs-6 mb-2" size="lg" type="BAYAR" as={Link} to={'/sukses'}> BAYAR </Button>
           </Col>
         </Row>
         
