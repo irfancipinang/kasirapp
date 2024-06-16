@@ -3,5 +3,11 @@
   color: white !important;
 }
 .navbar {
-    background-color: #4582aa;
+  background-color: #4582aa;
+}
+
+@media print {
+  .print {
+    display: none;
   }
+}

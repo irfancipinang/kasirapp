@@ -38,8 +38,8 @@ export default class home extends Component {
       })
   }
 
-  componentDidUpdate(prevState) {
-    if(this.state.keranjangs !== prevState.keranjangs)
+  componentDidUpdate(prevProps, prevState) {
+    if(this.state.keranjangs !== prevState.keranjangs) {
       axios
       .get(API_URL+"keranjangs")
       .then((res) => {
@@ -49,6 +49,7 @@ export default class home extends Component {
       .catch(error => {
         console.log(error);
       })
+    }
   }
 
   changeCategory = (value) => {

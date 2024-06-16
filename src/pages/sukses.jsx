@@ -3,11 +3,20 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { numberWithCommas } from '../utils/number';
 import { ListGroup } from 'react-bootstrap'
 import Badge from 'react-bootstrap/Badge' 
-import jsPDF from 'jspdf-autotable'
+import jsPDF from 'jspdf';
+import axios from 'axios';
+import '../App.css'
 
 export default class Sukses extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      keranjangs: []
+    }
+  }
+
+  // gak ngerti gw cara kerja si jsPdf ini
   generatePDF = async () => {
-    const {  } = await import('jspdf');
     const { keranjangs } = this.props;
     const doc = new jsPDF();
 
@@ -17,8 +26,8 @@ export default class Sukses extends Component {
     // Tambahkan tabel barang
     const tableColumn = ["Nama Barang", "Harga", "Jumlah", "Total Harga"];
     const tableRows = [];
-
-    keranjangs.forEach(item => {
+ 
+    await keranjangs.forEach(item => {
       const itemData = [
         item.nama_barang,
         `Rp. ${numberWithCommas(item.harga)}`,
@@ -28,24 +37,42 @@ export default class Sukses extends Component {
       tableRows.push(itemData);
     });
 
-    doc.autoTable({
+    await doc.autoTable({
       head: [tableColumn],
       body: tableRows,
       startY: 20,
     });
 
     // Tambahkan total harga
-    const totalHarga = keranjangs.reduce((result, item) => result + item.total_harga, 0);
+    const totalHarga = await keranjangs.reduce((result, item) => result + item.total_harga, 0);
     doc.text(`Total Harga: Rp. ${numberWithCommas(totalHarga)}`, 10, doc.autoTable.previous.finalY + 10);
 
     // Simpan PDF
     doc.save("struk_pembayaran.pdf");
   }
 
-  render() {
-    const { keranjangs } = this.props;
-    const totalHarga = keranjangs && keranjangs.reduce((result, item) => result + item.total_harga, 0);
+  componentDidMount(){
+   const keranjangs = async () => {
+     try {
+      const response = await axios.get('http://localhost:3000/keranjangs')
+      this.setState({keranjangs: response.data})
+     } catch (error) {
+      throw new Error(error.message)
+     }
+   } 
 
+   keranjangs()
+  }
+
+  // function baru buat ngeprint
+  handlePrint() {
+    window.print();
+  }
+
+  render() {
+    const { keranjangs } = this.state;
+    const totalHarga = keranjangs && keranjangs.reduce((result, item) => result + item.total_harga, 0);
+    
     return (
       <div className="mt-4 text-center">
         <h2>Struk Pembayaran</h2>
@@ -53,8 +80,8 @@ export default class Sukses extends Component {
       <hr  style={{ width: '100%', border: '1px solid black' }}/>
       {keranjangs && 
          <ListGroup variant="flush">
-           {keranjangs.map((menuKeranjang) =>(
-            <ListGroup.Item>
+           {keranjangs.map((menuKeranjang, i) =>(
+            <ListGroup.Item key={i}>
              <Row>
               <Col xs={2}>
               <h4>
@@ -81,7 +108,7 @@ export default class Sukses extends Component {
             <h4>Total Harga : <strong className="float-right mr-2"> Rp. {totalHarga && numberWithCommas(totalHarga)}</strong></h4>
           </Col>
         </Row>
-        <Button onClick={this.generatePDF} className="mt-4">Download PDF</Button>
+        <Button className="mt-4 print" onClick={this.handlePrint}>Download PDF</Button>
       </div>
     );
   }
