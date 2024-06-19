@@ -21,7 +21,7 @@ export default class Hasil extends Component {
       {keranjangs && 
          <ListGroup variant="flush">
            {keranjangs.map((menuKeranjang, i) =>(
-            <ListGroup.Item key={i}>
+            <ListGroup.Item key={menuKeranjang.id}>
              <Row>
               <Col xs={2}>
               <h4>

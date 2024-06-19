@@ -2,12 +2,32 @@ import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { numberWithCommas } from '../utils/number';
 import { ListGroup } from 'react-bootstrap'
+import { API_URL } from '../utils/constants'
+import { Link } from 'react-router-dom'
 import Badge from 'react-bootstrap/Badge' 
-import jsPDF from 'jspdf';
+
 import axios from 'axios';
 import '../App.css'
 
 export default class Sukses extends Component {
+
+  componentDidMount() {
+    axios
+    .get(API_URL + "keranjangs")
+    .then((res) => {
+      const keranjangs = res.data;
+      keranjangs.map(function(item){
+        return axios
+          .delete(API_URL+"keranjangs/"+ item.id)
+          .then((res) => console.log(res))
+          .catch((error) => console.log(error))
+      })
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,11 +35,8 @@ export default class Sukses extends Component {
     }
   }
 
-  // gak ngerti gw cara kerja si jsPdf ini
   generatePDF = async () => {
-    const { keranjangs } = this.props;
-    const doc = new jsPDF();
-
+  
     // Tambahkan judul
     doc.text("Struk Pembayaran", 10, 10);
 
@@ -108,7 +125,8 @@ export default class Sukses extends Component {
             <h4>Total Harga : <strong className="float-right mr-2"> Rp. {totalHarga && numberWithCommas(totalHarga)}</strong></h4>
           </Col>
         </Row>
-        <Button className="mt-4 print" onClick={this.handlePrint}>Download PDF</Button>
+        <Button className="mt-4 mb-5 print" onClick={this.handlePrint}>Download PDF</Button>
+        <Button className="mt-4 mb-5 m-2 print" as={Link} to="/">Kembali</Button>
       </div>
     );
   }
