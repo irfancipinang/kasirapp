@@ -147,6 +147,22 @@
           "nama": "Minuman"
         }
       }
+    },
+    {
+      "id": "9128",
+      "jumlah": 1,
+      "total_harga": 18000,
+      "product": {
+        "id": "3",
+        "nama": "Ayam Bakar",
+        "harga": 18000,
+        "is_ready": true,
+        "gambar": "ayam-bakar.jpg",
+        "category": {
+          "id": 1,
+          "nama": "Makanan"
+        }
+      }
     }
   ],
   "pesanans": []
